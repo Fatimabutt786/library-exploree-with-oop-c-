@@ -1,0 +1,289 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Book {
+private:
+    string title;
+    string author;
+
+public:
+    Book() {}
+
+    Book(string t, string a) : title(t), author(a) {}
+
+    void displayDetails() {
+        cout << "Title: " << title << endl;
+        cout << "Author: " << author << endl;
+    }
+
+    string getTitle() {
+        return this->title;
+    }
+}; // Added semicolon here
+
+
+class Library {
+private:
+    static const int MAX_BOOKS = 100;
+    Book books[MAX_BOOKS];
+    int numBooks;
+
+public:
+    Library() : numBooks(0) {}
+
+    void addBook(const Book& b) {
+        if (numBooks < MAX_BOOKS) {
+            books[numBooks++] = b;
+            cout << "Book added successfully." << endl;
+        } else {
+            cout << "Library is full. Cannot add more books." << endl;
+        }
+    }
+
+    void displayAllBooks() {
+        cout << "Books in the library:" << endl;
+        for (int i = 0; i < numBooks; ++i) {
+            cout << "Book " << i + 1 << ":" << endl;
+            books[i].displayDetails();
+            cout << endl;
+        }
+    }
+
+    void searchBookByTitle(const string& title) {
+        bool found = false;
+        for (int i = 0; i < numBooks; ++i) {
+            if (books[i].getTitle() == title) {
+                cout << "Book found:" << endl;
+                books[i].displayDetails();
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            cout << "Book not found." << endl;
+        }
+    }
+};
+
+int main() {
+    Library myLibrary;
+
+    // Adding some books
+    Book book1("Umrao Jaan Ada", " Mirza Hadi Ruswa");
+    Book book2("Aag Ka Darya", "Qurratulain Hyder");
+    Book book3("Bazm-e-Aakhir", "Saadat Hasan Manto");
+    Book book4("Peer-e-Kamil", "Umera Ahmed");
+    Book book5("Mushaf", "Nimra Ahmed");
+    Book book6("Aangan", "Khadija Mastoor");
+    Book book7("Aks", "Umera Ahmed");
+    Book book8("Raja Gidh", "Bano Qudsia");
+    Book book9("Jannat Kay Pattay", "Nimra Ahmedr");
+    Book book10("Khuda Aur Mohabbat", "Hashim Nadeem");
+    Book book11("Manto Ke 100 Behtareen Afsanay" ," Saadat Hasan Manto");
+    Book book12("Shehr-e-Zaat" , "Umera Ahmed");
+    Book book13("Peer-e-Kamil" , " Umera Ahmed");
+    Book book14("Devta" , " Mohiuddin Nawab");
+    Book book15("Aab-e-Hayat" , "Umera Ahmed");
+    Book book16("Alakh Nagri" ,"Mumtaz Mufti");
+    Book book17("Mere Khawab Mere Jugnoo" ," Nimra Ahmed");
+    Book book18("Toba Tek Singh" ,"Saadat Hasan Manto");
+    Book book19("Khuda Ki Basti" ,"Shaukat Siddiqui");
+    Book book20("La Hasil" ,"Umera Ahmed");
+    Book book21("Muqaddas" , "Hashim Nadeem");
+    Book book22("Man-o-Salwa" , "Umera Ahmed");
+    Book book23("Parizaad" ," Hashim Nadeem");
+    Book book24("Dastaan" ,"Razia Butt");
+    Book book25("Baagh-o-Bahar" ,"Mir Amman Dehlvi");
+    Book book26("Qaid-e-Tanhai" , "Umera Ahmed");
+    Book book27("Anarkali" ,"Imtiaz Ali Taj");
+    Book book28("Mausam e Gul" , "Faiza Iftikhar");
+    Book book29("Bagh-o-Bahar" , "Mir Amman Dehlvi");
+    Book book30("Haalim", "Nimra Ahmed");
+    Book book31("Zindagi Gulzar Hai" , "Umera Ahmed ");
+    Book book32("Mann Mayal", "Samira Fazal");
+    Book book33("Mera Raqeeb" , "Nighat Abdullah ");
+    Book book34("Amar Bail" , "Umera Ahmed");
+    Book book35("Kankar" , "Umera Ahmed ");
+    Book book36("Humsafar" , "Farhat Ishtiaq");
+    Book book37("Gul-e-Rana" , "Samra Bukhari ");
+    Book book38("Ishq Ka Ain" , "Aleem Ul Haq Haqqi");
+    Book book39("Yeh Jo Ik Subha Ka Sitara Hai" , "Umera Ahmed ");
+    Book book40("Saudagar" , "Asar Nomani");
+    Book book41("Mere Hamdam Mere Dost" , "Farhat Ishtiaq ");
+    Book book42("Shab Deeda" , "Muhammad Yahya Khan");
+    Book book43("Raja Gidh" , "Bano Qudsia ");
+    Book book44("Karachi" , "Bano Qudsia");
+    Book book45("Mata-e-Jaan Hai Tu" , "Farhat Ishtiaq ");
+    Book book46("Mohabbat Subha Ka Sitara Hai" , "Umera Ahmed");
+    Book book47("Shehr-e-Zaat" , "Umera Ahmed ");
+    Book book48("Khawabon Ki Tabeer" , "Mufti Muhammad Faiz Ahmad Awaisi");
+    Book book49("Main Ne Khawabon Ka Shajar Dekha Hai" , "Umera Ahmed ");
+    Book book50("Aik Thi Naina" , "Rahat Wafa");;
+    Book book51("Khali Ghar" , "Asma Qadri");
+    Book book52("Hasil" , "Umera Ahmed");
+    Book book53("Manzil Manzil" , "Shaukat Siddiqui");
+    Book book54("Fareb-e-Nazar" , "Mohammad Yahya Khan");
+    Book book55("Aatish-e-Ishq" , "Naz Kafeel Gilani");
+    Book book56("Tum Akhri Jazeera Ho" , "Umme Maryam");
+
+    Book book57("Teri Ulfat Mein Sanam" , "Iqra Sagheer Ahmed");
+    Book book58("Mohabbat Ab Nahi Hogi" , "Iqra Khan");
+    Book book59("Jannat Do Qadam" , "Nabeela Abar Raja");
+    Book book60("Roshan Diyee" , "Farhat Ishtiaq");
+    Book book61("Wapsi" , "Umera Ahmed");
+    Book book62("Mere Khwab Lota Do" , "Nighat Abdullah");
+    Book book63("Gumshuda Jannat" , "Saima Akram Chaudhry");
+    Book book64("SheharZaad" , "Saima Akram Chaudhry");
+    Book book65("Jangloos" , "Shaukat Siddiqui");
+    Book book66("Zaviya" , "Ashfaq Ahmed");
+    Book book67("Jheel Kinara Kankar" , "Nazia Kanwal Nazi");
+    Book book68("Bala Khane Ki Dulhan" , "Aleem Ul Haq Haqqi");
+    Book book69("Taqreeb-e-Talash" , "Mohammad Yahya Khan");
+    Book book70("Rang Rez Mere" , "Iffat Sehar Pasha");
+    Book book71("Mere Dil Mere Musafir" , "Nighat Abdullah");
+    Book book72("Dil Se Nikle Hain Jo Lafz" , "Farhat Ishtiaq");
+    Book book73("Zara Si Aurat" , "Umera Ahmed");
+    Book book74("Nimra Ahmad Novels" , "Nimra Ahmed (collection of novels)");
+    Book book75("Beli Rajputan Ki Malika" , "Nimra Ahmed");
+    Book book76("Yeh Ishq" , "Hamna Tanvee");
+    Book book77("Nahi Abhi Nahi" , "Razia Butt");
+    Book book78("Mere Humnawa Mere Humnava" , "Nighat Abdullah");
+    Book book79("Sauda" , "Umera Ahmed");
+    Book book80("Tum Meri Ho" , "Waryal Khan");
+    Book book81("Wo Mera Hai" , "Nimra Ahmed");
+    Book book82("Aur Talwar Toot Gai" , "Naseem Hijazi");
+    Book book83("Amarbail" , "Bano Qudsia");
+    Book book84("Chand Gagan Aur Chandni" , "Iqra Sagheer Ahmed");
+    Book book85("Darbar-e-Dil" , "Umera Ahmed");
+    Book book86("Mohabbat Ho Gai Akhir" , "Mustufa Chippa");
+    Book book87("Paras" , "Nimra Ahmed");
+    Book book88("Pahari Ka Qaidi" , "Nimra Ahmed");
+    Book book89("Zameen Kay Ansoo" , "Nighat Seema");
+    Book book90("Husna Aur Husan Ara" , "Umera Ahmed");
+    Book book91("Khasara" , "Umera Ahmed");
+    Book book92("Tere Ishq Mein Pagal" , "Iffat Sehar Tahir");
+    Book book93("Jannat Kay Pattey" , "Nimra Ahmed");
+    Book book94("Aks-e-Khushboo" , "Parveen Shakir");
+    Book book95("Tum Meri Zeest Ka Hasil Ho" , "Iqra Sagheer Ahmed");
+    Book book96("Dil Diya Dehleez" , "Riffat Siraj");
+    Book book97("Aye Shama Ko Jaliyon" , "Umera Ahmed");
+    Book book98("Muhabbat Khawab Safar" , "Aasia Mirza");
+    Book book99("Hijaab" , "Razia Butt");
+    Book book100("Bandhan" , "Razia Butt");
+
+   
+    myLibrary.addBook(book1);
+    myLibrary.addBook(book2);
+    myLibrary.addBook(book3);
+    myLibrary.addBook(book4);
+    myLibrary.addBook(book5);
+    myLibrary.addBook(book6);
+    myLibrary.addBook(book7);
+    myLibrary.addBook(book8);
+    myLibrary.addBook(book9);
+    myLibrary.addBook(book10);
+    myLibrary.addBook(book11);
+    myLibrary.addBook(book12);
+    myLibrary.addBook(book13);
+    myLibrary.addBook(book14);
+    myLibrary.addBook(book15);
+    myLibrary.addBook(book16);
+    myLibrary.addBook(book17);
+    myLibrary.addBook(book18);
+    myLibrary.addBook(book19);
+    myLibrary.addBook(book20);
+    myLibrary.addBook(book21);
+    myLibrary.addBook(book22);
+    myLibrary.addBook(book23);
+    myLibrary.addBook(book24);
+    myLibrary.addBook(book25);
+    myLibrary.addBook(book26);
+    myLibrary.addBook(book27);
+    myLibrary.addBook(book28);
+    myLibrary.addBook(book29);
+    myLibrary.addBook(book30);
+    myLibrary.addBook(book31);
+    myLibrary.addBook(book32);
+    myLibrary.addBook(book33);
+    myLibrary.addBook(book34);
+    myLibrary.addBook(book35);
+    myLibrary.addBook(book36);
+    myLibrary.addBook(book37);
+    myLibrary.addBook(book38);
+    myLibrary.addBook(book39);
+    myLibrary.addBook(book40);
+    myLibrary.addBook(book41);
+    myLibrary.addBook(book42);
+    myLibrary.addBook(book43);
+    myLibrary.addBook(book44);
+    myLibrary.addBook(book45);
+    myLibrary.addBook(book46);
+    myLibrary.addBook(book47);
+    myLibrary.addBook(book48);
+    myLibrary.addBook(book49);
+    myLibrary.addBook(book50);
+    myLibrary.addBook(book51);
+    myLibrary.addBook(book52);
+    myLibrary.addBook(book53);
+    myLibrary.addBook(book54);
+    myLibrary.addBook(book55);
+    myLibrary.addBook(book56);
+    myLibrary.addBook(book57);
+    myLibrary.addBook(book58);
+    myLibrary.addBook(book59);
+    myLibrary.addBook(book60);
+    myLibrary.addBook(book61);
+    myLibrary.addBook(book62);
+    myLibrary.addBook(book63);
+    myLibrary.addBook(book64);
+    myLibrary.addBook(book65);
+    myLibrary.addBook(book66);
+    myLibrary.addBook(book67);
+    myLibrary.addBook(book68);
+    myLibrary.addBook(book69);
+    myLibrary.addBook(book70);
+    myLibrary.addBook(book71);
+    myLibrary.addBook(book72);
+    myLibrary.addBook(book73);
+    myLibrary.addBook(book74);
+    myLibrary.addBook(book75);
+    myLibrary.addBook(book76);
+    myLibrary.addBook(book77);
+    myLibrary.addBook(book78);
+    myLibrary.addBook(book79);
+    myLibrary.addBook(book80);
+    myLibrary.addBook(book81);
+    myLibrary.addBook(book82);
+    myLibrary.addBook(book83);
+    myLibrary.addBook(book84);
+    myLibrary.addBook(book85);
+    myLibrary.addBook(book86);
+    myLibrary.addBook(book87);
+    myLibrary.addBook(book88);
+    myLibrary.addBook(book89);
+    myLibrary.addBook(book90);
+    myLibrary.addBook(book91);
+    myLibrary.addBook(book92);
+    myLibrary.addBook(book93);
+    myLibrary.addBook(book94);
+    myLibrary.addBook(book95);
+    myLibrary.addBook(book96);
+    myLibrary.addBook(book97);
+    myLibrary.addBook(book98);
+    myLibrary.addBook(book99);
+    myLibrary.addBook(book100);
+
+    // Display all books in the library
+    myLibrary.displayAllBooks();
+
+    // Search for a book by title
+ 
+cout << "Enter the title of the book to search: ";
+    string searchTitle;
+    getline(cin, searchTitle);
+    myLibrary.searchBookByTitle(searchTitle);
+
+    return 0;
+}
